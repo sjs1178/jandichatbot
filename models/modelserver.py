@@ -8,6 +8,7 @@ from flask import Flask, request, jsonify
 from .modelcreator import Predictor
 from gevent.pywsgi import WSGIServer
 import numpy as np
+import os
 
 app = Flask(__name__)
 predictor = None
@@ -40,6 +41,7 @@ def initialize_models(json_path, weights_path, normalized_x, normalized_y):
 
 def run(host='0.0.0.0', port=7171):
     """Run a WSGI server using gevent."""
+    port = int(os.environ.get("PORT", 7171))
     app.add_url_rule('/predict', view_func=ModelLoader.as_view('predict'))
     print('running server http://{0}'.format(host + ':' + str(port)))
     WSGIServer((host, port), app).serve_forever()
