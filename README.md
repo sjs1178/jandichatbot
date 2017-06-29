@@ -27,7 +27,7 @@ source activate keras-server
 
 4. Install all the dependencies:
 ```
-pip install -r uirements.txt
+pip install -r requirements.txt
 ```
 
 5. To remove the environment run:
