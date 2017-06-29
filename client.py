@@ -8,7 +8,8 @@ import requests
 def get_predictions(X_input):
     """Get predictions from a rest backend for your input."""
     print("Requesting prediction for XOR with {0}".format(X_input))
-    r = requests.post("http://localhost:7171/predict", json={'X_input': X_input})
+    #r = requests.post("http://localhost:80/predict", json={'X_input': X_input})
+    r = requests.post("https://calm-garden-63196.herokuapp.com:7171/predict", json={'X_input': X_input})
     print(r.status_code, r.reason)
     resp = r.json()
     prediction = resp['pred_val'][0]
