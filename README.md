@@ -15,19 +15,19 @@ https://docs.continuum.io/anaconda/install
 
 2. Clone this repository
 ```
-git clone https://github.com/ansrivas/keras-rest-server.git
+git clone https://github.com/dkyos/keras-rest-server.git
 cd keras-rest-server
 ```
 
 3. Create a new environment ( Change python=2 or python=3) and activate it:
 ```
-conda create --name keras-server -y python=2
+conda create --name keras-server -y python=3.5
 source activate keras-server
 ```
 
 4. Install all the dependencies:
 ```
-conda env update -n keras-server  --file requirements.txt
+pip install -r uirements.txt
 ```
 
 5. To remove the environment run:
