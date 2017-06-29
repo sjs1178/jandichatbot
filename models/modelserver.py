@@ -38,7 +38,7 @@ def initialize_models(json_path, weights_path, normalized_x, normalized_y):
     predictor.compile_model(loss='mse', optimizer='rmsprop')
 
 
-def run(host='0.0.0.0', port=7171):
+def run(host='0.0.0.0', port=80):
     """Run a WSGI server using gevent."""
     app.add_url_rule('/predict', view_func=ModelLoader.as_view('predict'))
     print('running server http://{0}'.format(host + ':' + str(port)))
