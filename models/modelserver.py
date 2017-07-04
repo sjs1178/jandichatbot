@@ -15,32 +15,25 @@ predictor = None
 
 
 class ModelLoader(MethodView):
-    """ModelLoader class initialzes the model params and waits for a post request to server predictions."""
 
     def __init__(self):
-        """Initialize ModelLoader class."""
         pass
 
     def post(self):
-        """Accept a post request to serve predictions."""
         content = request.get_json()
         X_input = content['X_input']
-        if not isinstance(X_input, np.ndarray):
-            X_in = np.reshape(np.array(X_input), newshape=(1, 2))
-        pred_val = predictor.predict(X_input=X_in)
+        print ("post: %s" % X_input);
+        pred_val = predictor.predict(X_input)
+
         pred_val = pred_val.tolist()
         return jsonify({'pred_val': pred_val})
 
 
-def initialize_models(json_path, weights_path, normalized_x, normalized_y):
-    """Initialize models and use this in Flask server."""
+def initialize_models(pickles_path, vocab_path, json_path, weights_path, train_path):
     global predictor
-    predictor = Predictor(json_path, weights_path, normalized_x, normalized_y)
-    predictor.compile_model(loss='mse', optimizer='rmsprop')
-
+    predictor = Predictor(pickles_path, vocab_path, json_path, weights_path, train_path)
 
 def run(host='0.0.0.0', port=7171):
-    """Run a WSGI server using gevent."""
     port = int(os.environ.get("PORT", 7171))
     app.add_url_rule('/predict', view_func=ModelLoader.as_view('predict'))
     print('running server http://{0}'.format(host + ':' + str(port)))
