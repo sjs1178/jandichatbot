@@ -183,6 +183,7 @@ def load_model(json_path, weights_path):
         raise Exception('Failed to load model/weights')
 
 def eval_model(model, test_sentence):
+    print(test_sentence)
     data = tokenize(test_sentence);
     print(data)
     x_test = [get_token_id(t, vocab) for t in data]
@@ -214,8 +215,8 @@ class Predictor(object):
         # model_preprocess.eval_model(self.model, '재미 있다')
 
     def predict(self, X_input):
-        print (X_input[0]);
-        x_pred = eval_model(self.model, X_input[0]);
+        print (X_input);
+        x_pred = eval_model(self.model, X_input);
         return x_pred 
 
 

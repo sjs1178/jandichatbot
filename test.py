@@ -16,4 +16,4 @@ if __name__ == '__main__':
         settings.path_model_weight);
     modelcreator.eval_model(model, "재미 있다");
     modelcreator.eval_model(model, "짱 최고");
-    modelcreator.eval_model(model, "킬링");
+    modelcreator.eval_model(model, "완벽했다 현대판 스파이더맨을 잘 살려냈다 캐릭터도 반전 아닌 반전도 액션도 떡밥도");
