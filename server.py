@@ -5,14 +5,18 @@
 from models import modelserver
 import settings
 import sys
-sys.path.append("./models")
 
-modelserver.initialize_models(
-    pickles_path=settings.path_pickles, 
-    vocab_path=settings.path_vocab,
-    json_path=settings.path_model_json,
-    weights_path=settings.path_model_weight,
-    train_path=settings.path_train_file
-);
+print("Hello")
 
-modelserver.run()
+# sys.path.append("./models")
+
+# modelserver.initialize_models(
+#     pickles_path=settings.path_pickles, 
+#     vocab_path=settings.path_vocab,
+#     json_path=settings.path_model_json,
+#     weights_path=settings.path_model_weight,
+#     train_path=settings.path_train_file
+# );
+
+# modelserver.run()
+
